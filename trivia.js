@@ -93,7 +93,7 @@ function checkAnswer() {
     isQuestionAnswered = true;
     questionIndex++;
     if(questions.indexOf(currentQuestion) == questions.length - 1) {
-        alert(`Your score is ${score}`)
+        alert(`Your score is ${score} out of 8! If you scored at least 6 good job you've past the test!`)
         questionIndex = 0
         showCurrentQuestion()
     }
