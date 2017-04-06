@@ -7,15 +7,19 @@ body {
 
 audio,source {
     position: absolute;
-    top: 460px;
-    right: 180px;
+    top: 520px;
+    right: 168px;
 }
 
 #correctness {
-    font-size: 50px;
-    
+    font-size: 40px;
+
 }
 
+#help {
+    font-size: 40px;
+    color: pink;
+}
 
 #title {
     text-decoration: underline;
@@ -64,7 +68,7 @@ button:active {
     font-weight: bold;
     box-shadow: 10px 10px 5px #888;
     background-image: url('./assets/brando.jpg');
-    height: 450px;
+    height: 500px;
     font-size: 30px;
 
 }
