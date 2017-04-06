@@ -2,6 +2,9 @@
 var questionIndex = 0;
 var currentQuestion = null;
 var isQuestionAnswered = false;
+var score = 1;
+var correct = "correct!";
+var incorrect = "incorrect!";
 var questions = [{
     text: "Known for films such as Stand by Me and Running on Empty, this 80's teen idol's career fell short due to an early and unexpected death.",
     answers: ["Michael J Fox", "Ralph Macchio", "Corey Feldman","River Phoenix"],
@@ -60,14 +63,18 @@ function checkAnswer() {
     }
     var submittedAnswer = $(this).text()
     if(submittedAnswer == currentQuestion.correct) {
-        alert("correct")
+
+        $("#score").text("score: " + score++)
+        $("#correctness").text(correct)
+        $("#correctness").css("color", "green")
     } else {
-        alert('incorrect')
+        $("#correctness").text(incorrect)
+        $("#correctness").css("color", "red")
     }
     isQuestionAnswered = true;
     questionIndex++;
 }
-
+// if(questionIndex == question.length - 1)
 
 
 $('#start').on('click', showCurrentQuestion)
