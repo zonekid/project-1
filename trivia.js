@@ -1,7 +1,7 @@
 var questionIndex = 0;
 var currentQuestion = null;
 var isQuestionAnswered = false;
-var score = 1;
+var score = 0;
 var correct = "correct!";
 var incorrect = "incorrect!";
 var questions = [{
@@ -69,7 +69,7 @@ function showCurrentQuestion() {
     $("#a1").text(currentQuestion.answers[1])
     $("#a2").text(currentQuestion.answers[2])
     $("#a3").text(currentQuestion.answers[3])
-
+    $('.answer-button').css('color', 'white')
     isQuestionAnswered = false;
     $("#help").text("")
     $("#correctness").text("")
@@ -82,13 +82,20 @@ function checkAnswer() {
     }
     var submittedAnswer = $(this).text()
     if (submittedAnswer == currentQuestion.correct) {
-
-        $("#score").text("score: " + score++)
-        $("#correctness").text(correct)
-        $("#correctness").css("color", "green")
+        $(this).css('color', 'green')
+        score++
+        $("#score").text("score: " + score)
+        // $("#correctness").text(correct)
+        // $("#correctness").css("color", "green")
     } else {
-        $("#correctness").text(incorrect)
-        $("#correctness").css("color", "red")
+        $(this).css('color', 'red')
+        $('.answer-button').each((index, answer_div) => {
+            if (currentQuestion.correct == $(answer_div).text()){
+                $(answer_div).css('color', 'green')
+            }
+        })
+        // $("#correctness").text(incorrect)
+        // $("#correctness").css("color", "red")
     }
     isQuestionAnswered = true;
     questionIndex++;
